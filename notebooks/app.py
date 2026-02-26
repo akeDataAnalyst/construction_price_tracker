@@ -40,7 +40,7 @@ st.markdown("""
 # Load data 
 @st.cache_data
 def load_data():
-    DATA_DIR = Path("data")
+    DATA_DIR = Path("notebooks")
     patterns = ["master_prices_ml_flagged_20260218.csv", "master_prices_cleaned_20260218.csv"]
     candidates = []
     for pat in patterns:
@@ -57,7 +57,7 @@ def load_data():
 df, filename = load_data()
 
 if df is None:
-    st.error("Could not load data. Check data/.")
+    st.error("Could not load data. Check notebooks/.")
     st.stop()
 
 # Title
