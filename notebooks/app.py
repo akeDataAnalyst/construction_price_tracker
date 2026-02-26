@@ -121,7 +121,7 @@ else:
 st.divider()
 
 # Tabs
-tab1, tab2, tab3 = st.tabs(["📊 Overview", "📋 Data Table", "⚠️ Outliers"])
+tab1, tab2, tab3 = st.tabs([" Overview", " Data Table", " Outliers"])
 
 with tab1:
     colL, colR = st.columns(2)
