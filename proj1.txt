@@ -1,0 +1,26 @@
+1. Construction Materials Price Tracker (Start this one immediately — highest impact & quickest to MVP)Why start this first?
+It perfectly matches the JD's emphasis on data extraction, validation, transformation, web scraping, report generation, and AI/ML for value-add (e.g., validation/classification). Ethiopian construction material prices fluctuate a lot, and local sites like 2merkato.com, ahunmart.com, conmaret.com, shaleqa.com, and jiji.com.et have public listings — ideal for a relevant, Ethiopia-focused demo. Recruiters will see immediate connection to "construction and interior pricing platform."
+Problem
+Construction/interior professionals in Ethiopia face inconsistent, scattered, and frequently changing material prices across suppliers, leading to inaccurate budgeting, manual effort, and errors.
+Solution (high-level implementation steps to start today)  Scraping: Use Scrapy (preferred for JD) or BeautifulSoup + Requests to crawl public price pages/categories on sites like:https://con.2merkato.com/prices (structured tables for concrete, sand, gravel, rebar, etc.)
+https://ahunmart.com/ (e-commerce listings)
+https://shaleqa.com/ or https://conmaret.com/ (product pages)
+Add Playwright if sites are dynamic/JavaScript-heavy.
+
+Data handling: Normalize semi-structured data (e.g., clean prices, units, material names) with Pandas; handle ETB currency.
+Database: Store in PostgreSQL (use SQLAlchemy/psycopg2) — create tables for materials, prices, suppliers, timestamps.
+AI/ML: Use scikit-learn for:Outlier detection (e.g., Isolation Forest) to flag invalid prices.
+Simple classification (e.g., categorize materials: "finishing" vs "structural").
+Basic trend matching (e.g., flag price spikes >20%).
+
+Reports: Generate PDF reports with ReportLab or matplotlib + FPDF — include price trends, averages per category, and ML validation summary. Add email export (smtplib) for automation.
+Extras for polish: Schedule with APScheduler/Celery; add simple API endpoint (FastAPI) for querying prices.
+
+Quick start tips  Day 1: Set up Scrapy project, build 1-2 spiders for 2merkato.com categories (concrete work, masonry).
+Use free PostgreSQL (local or Supabase/Neon free tier).
+Target 5-10 material types (cement, rebar, sand, tiles, paint) for MVP.
+Metrics to showcase: scraping success rate, ML validation accuracy (e.g., 90%+ on manual test set).
+
+Portfolio presentation
+GitHub README with: architecture diagram, sample scraped data screenshot, report PDF example, ML notebook, and a short video demo (screen record running the scraper + report generation). In cover letter: "Built Ethiopia-specific construction price tracker aligning with your pricing platform needs."
+
